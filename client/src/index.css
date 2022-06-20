@@ -1,0 +1,73 @@
+code {
+   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+}
+
+* {
+   font-family: "JetBrains Mono", monospace;
+   text-decoration: none;
+}
+
+.HeadAndNav {
+   background-color: orange;
+}
+
+#title {
+   color: white;
+   text-align: center;
+   margin: 0%;
+}
+
+#OLU {
+   font-weight: 600;
+   font-style: italic;
+   color: white;
+   text-align: center;
+   margin: 0%;
+}
+
+.Nav {
+   display: flex;
+   font-family: "JetBrains Mono", monospace;
+   text-transform: uppercase;
+}
+
+.resourceContainer {
+   display: grid;
+   grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+   gap: 3px;
+}
+
+.resourceCard {
+   border: solid;
+   color: white;
+   background-color: orange;
+   text-align: -webkit-center;
+   margin: 10px;
+   padding: 5px;
+   border-radius: 20px;
+}
+
+.resourceTitle {
+   text-transform: uppercase;
+}
+
+.staff {
+   color: rgb(65, 206, 100);
+   background-color: white;
+   border-radius: 10px;
+   padding: 4px 8px 4px 8px;
+   text-decoration: none;
+}
+
+.cohort {
+   color: rgb(0, 110, 255);
+   background-color: white;
+   border-radius: 10px;
+   padding: 4px 8px 4px 8px;
+   text-decoration: none;
+}
+
+.url {
+   width: 300px;
+}
