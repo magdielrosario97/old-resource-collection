@@ -1,0 +1,46 @@
+TRUNCATE users, post RESTART IDENTITY;
+
+
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Magdiel Rosario', 'magdielrosario97@gmail.com', 'magdielrosario97', 'MCSP-12', true, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Vi Glanville', 'vglanville0@sakura.ne.jp', 'vglanville0', '12', true, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Devin Loughran', 'dloughran1@state.tx.us', 'dloughran1', '12', true, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Mohandas Pauleau', 'mpauleau2@freewebs.com', 'mpauleau2', '12', false, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Lanae Pendrid', 'lpendrid3@canalblog.com', 'lpendrid3', '12', false, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Gustav Fleisch', 'gfleisch4@noaa.gov', 'gfleisch4', '12', false, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Tiphanie Danskine', 'tdanskine5@51.la', 'tdanskine5', '12', true, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Carmelita Cawte', 'ccawte6@oracle.com', 'ccawte6', '12', false, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Rhett Sherland', 'rsherland7@go.com', 'rsherland7', '12', true, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Antony Marguerite', 'amarguerite8@photobucket.com', 'amarguerite8', '12', true, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Buckie Jefferys', 'bjefferys9@google.cn', 'bjefferys9', '12', true, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Peyton Jurasek', 'pjuraseka@com.com', 'pjuraseka', '12', true, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Uta Small', 'usmallb@oaic.gov.au', 'usmallb', '12', false, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Giulia Thrush', 'gthrushc@cbsnews.com', 'gthrushc', '12', true, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Marget Pavlik', 'mpavlikd@sciencedirect.com', 'mpavlikd', '12', false, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Evelyn Elcott', 'eelcotte@bravesites.com', 'eelcotte', '12', false, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Cam Berrey', 'cberreyf@yelp.com', 'cberreyf', '12', false, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Tammi Driutti', 'tdriuttig@hhs.gov', 'tdriuttig', '12', true, true);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Vic McGrane', 'vmcgraneh@engadget.com', 'vmcgraneh', '12', true, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Giustina Eggleson', 'gegglesoni@marriott.com', 'gegglesoni', '12', false, false);
+INSERT INTO users (fullname, email, username, cohort, isAdmin, isStaff) VALUES ('Dani Paulusch', 'dpauluschj@walmart.com', 'dpauluschj', '12', false, true);
+
+INSERT INTO post (title, body, link, user_id) VALUES ('Test', 'TESTIIIIIIIIIIIING', 'ligma.com', 1);
+INSERT INTO post (title, body, link, user_id) VALUES ('sem fusce consequat', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.', 'http://yahoo.co.jp', 3);
+INSERT INTO post (title, body, link, user_id) VALUES ('eu orci mauris', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.', 'https://icq.com', 15);
+INSERT INTO post (title, body, link, user_id) VALUES ('dignissim vestibulum', 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'http://mit.edu', 14);
+INSERT INTO post (title, body, link, user_id) VALUES ('vulputate', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.', 'https://toplist.cz', 2);
+INSERT INTO post (title, body, link, user_id) VALUES ('fusce lacus purus', 'Suspendisse accumsan tortor quis turpis.', 'http://friendfeed.com', 11);
+INSERT INTO post (title, body, link, user_id) VALUES ('blandit non interdum', 'In sagittis dui vel nisl.', 'http://constantcontact.com', 4);
+INSERT INTO post (title, body, link, user_id) VALUES ('dapibus duis', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 'http://cornell.edu', 15);
+INSERT INTO post (title, body, link, user_id) VALUES ('nunc', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.', 'https://wikimedia.org', 7);
+INSERT INTO post (title, body, link, user_id) VALUES ('fermentum', 'In quis justo. Maecenas rhoncus aliquam lacus.', 'http://taobao.com', 7);
+INSERT INTO post (title, body, link, user_id) VALUES ('commodo placerat', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', 'https://java.com', 5);
+INSERT INTO post (title, body, link, user_id) VALUES ('lectus in est', 'Praesent lectus.', 'https://gizmodo.com', 1);
+INSERT INTO post (title, body, link, user_id) VALUES ('posuere', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.', 'http://shinystat.com', 15);
+INSERT INTO post (title, body, link, user_id) VALUES ('nisi', 'Nullam molestie nibh in lectus.', 'https://census.gov', 17);
+INSERT INTO post (title, body, link, user_id) VALUES ('leo odio porttitor', 'Nulla ac enim.', 'https://intel.com', 11);
+INSERT INTO post (title, body, link, user_id) VALUES ('nulla', 'Vivamus vel nulla eget eros elementum pellentesque.', 'https://freewebs.com', 10);
+INSERT INTO post (title, body, link, user_id) VALUES ('rutrum at', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', 'https://clickbank.net', 16);
+INSERT INTO post (title, body, link, user_id) VALUES ('maecenas leo odio', 'Donec vitae nisi.', 'http://linkedin.com', 13);
+INSERT INTO post (title, body, link, user_id) VALUES ('felis fusce posuere', 'Etiam faucibus cursus urna. Ut tellus.', 'http://google.co.uk', 17);
+INSERT INTO post (title, body, link, user_id) VALUES ('potenti nullam', 'Morbi vel lectus in quam fringilla rhoncus.', 'https://bandcamp.com', 19);
+INSERT INTO post (title, body, link, user_id) VALUES ('amet consectetuer', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 'https://vistaprint.com', 16);
