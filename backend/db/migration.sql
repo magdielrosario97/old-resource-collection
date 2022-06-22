@@ -2,26 +2,17 @@ DROP DATABASE IF EXISTS mcsp_resources;
 
 CREATE DATABASE mcsp_resources;
 \c mcsp_resources
-DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS post;
 
-CREATE TABLE users(
-    user_id SERIAL PRIMARY KEY,
-    fullname VARCHAR(155),
-    email VARCHAR(155),
-    username TEXT UNIQUE NOT NULL,
-    cohort TEXT,
-    isAdmin BOOLEAN,
-    isStaff BOOLEAN
-);
-
 CREATE TABLE post(
-    id SERIAL PRIMARY KEY,
-    created_at DATE NOT NULL DEFAULT CURRENT_DATE,
+    id SERIAL UNIQUE PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     title TEXT NOT NULL,
     body TEXT NOT NULL,
     link TEXT,
-    user_id INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE
+    cohort TEXT NOT NULL,
+    username TEXT NOT NULL
 );
 
 \i seed.sql
+

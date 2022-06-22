@@ -8,11 +8,13 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
+//---------------------------------------------- RESOURCES -----------------------------------//
+
 // GET ALL POSTS
 app.get("/", async (req, res) => {
    try {
       const homePage = await pool.query(
-         "SELECT post.*, users.username, users.cohort, users.isstaff FROM post INNER JOIN users ON post.user_id = users.user_id ORDER BY created_at DESC"
+         "SELECT * FROM post ORDER BY created_at DESC"
       );
       res.json(homePage.rows);
    } catch (err) {
@@ -24,40 +26,24 @@ app.get("/", async (req, res) => {
 app.get("/:id", async (req, res) => {
    try {
       const { id } = req.params;
-      const onePost = await pool.query(
-         "SELECT post.*, users.username, users.cohort, users.isstaff FROM post INNER JOIN users ON post.user_id = users.user_id WHERE id = $1",
-         [id]
-      );
+      const onePost = await pool.query("SELECT * FROM post WHERE id = $1", [
+         id,
+      ]);
       res.send(onePost.rows[0]);
    } catch (err) {
       res.send(err.message);
    }
 });
 
-// POST ONE
+// UNIVERSAL CREATE POST ROUTE
 app.post("/", async (req, res) => {
    try {
-      const { title, body, link, user } = req.body;
+      const { title, body, link, username, cohort } = req.body;
       const addPost = await pool.query(
-         "INSERT INTO post (title, body, link, user_id) VALUES ($1, $2, $3, $4)",
-         [title, body, link, user]
+         "INSERT INTO post (title, body, link, username, cohort) VALUES ($1, $2, $3, $4, $5)",
+         [title, body, link, username, cohort]
       );
       res.send("Post successfully posted");
-   } catch (err) {
-      res.send(err.message);
-   }
-});
-
-// PATCH ONE
-
-// DELETE ONE
-app.delete("/:id", async (req, res) => {
-   try {
-      const { id } = req.params;
-      const deletePost = await pool.query("DELETE FROM post WHERE id = $1", [
-         id,
-      ]);
-      res.send("Post successfully deleted");
    } catch (err) {
       res.send(err.message);
    }
@@ -68,4 +54,55 @@ const PORT = process.env.PORT || 3005;
 
 app.listen(PORT, () => {
    console.log(`Listening on PORT ${PORT}`);
+});
+
+// -------------------------------------------- USERS CONTROLS -------------------------------//
+
+// GET SINGLE USER'S POSTS
+app.get("/:username/posts", async (req, res) => {
+   try {
+      const username = req.params.username;
+      const userPosts = await pool.query(
+         "SELECT * FROM post WHERE username = $1 ORDER BY created_at DESC",
+         [username]
+      );
+      res.send(userPosts.rows);
+   } catch (err) {
+      res.send(err.message);
+   }
+});
+
+// FOR SPECIFIC USER TO UPDATE POST
+app.patch("/edit/:id", async (req, res) => {
+   const id = req.params.id;
+   try {
+      const oldPost = await pool.query("SELECT * FROM post WHERE id = $1", [
+         id,
+      ]);
+
+      const title = req.body.title || oldPost.rows[0].title;
+      const body = req.body.body || oldPost.rows[0].body;
+      const link = req.body.link || oldPost.rows[0].link;
+
+      const newPost = await pool.query(
+         "UPDATE post SET title = $1, body = $2, link = $3 WHERE id = $4",
+         [title, body, link, id]
+      );
+      res.send("Post successfully updated");
+   } catch (err) {
+      res.send(err.message);
+   }
+});
+
+// FOR SPECIFIC USER TO DELETE THEIR POST
+app.delete("/delete/:id", async (req, res) => {
+   try {
+      const { id } = req.params;
+      const deletePost = await pool.query("DELETE FROM post WHERE id = $1", [
+         id,
+      ]);
+      res.send("Post successfully deleted");
+   } catch (err) {
+      res.send(err.message);
+   }
 });

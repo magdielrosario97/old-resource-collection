@@ -2,11 +2,10 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Loading from "./components/Loading";
-import Error from "./components/Error";
-import Head from "./components/Head";
 import Navi from "./components/Navi";
 import Home from "./components/Home";
+import Profile from "./components/Profile";
+import About from "./components/About";
 import { withAuth0 } from "@auth0/auth0-react";
 
 class App extends React.Component {
@@ -16,7 +15,7 @@ class App extends React.Component {
       hasError: false,
       errorMessage: "Hmm... Something is broken. Try again soon.",
       resources: null,
-      user: null,
+      singlePost: null,
    };
 
    componentDidMount() {
@@ -28,25 +27,42 @@ class App extends React.Component {
          });
    }
 
+   handleSubmit = (e) => {
+      this.setState({ submitted: true });
+      e.preventDefault();
+   };
+
+   componentDidUpdate(prevState) {
+      if (this.state.resources !== prevState) {
+         fetch(`http://localhost:3002/`)
+            .then((res) => res.json())
+            .then((posts) => this.setState({ resources: posts, loading: false }));
+      }
+   }
+
    render() {
-      console.log(this.props.auth0.isAuthenticated);
       if (this.state.loading) {
-         return <Loading loading={this.state.loadingMessage} />;
+         return <h1>{this.state.loadingMessage}</h1>;
       }
       if (this.state.hasError) {
-         return <Error error={this.state.errorMessage} />;
+         return <h1>{this.state.errorMessage}</h1>;
       }
       if (this.props.auth0.isAuthenticated) {
          return (
             <>
-               <Head />
                <Navi />
                <div className="reactive">
                   <Routes>
                      <Route
                         path="/"
-                        element={<Home posts={this.state.resources} />}
+                        element={
+                           <>
+                              <Home posts={this.state.resources} />
+                           </>
+                        }
                      />
+                     <Route path="/myprofile" element={<Profile />} />
+                     <Route path="/about" element={<About />} />
                   </Routes>
                </div>
             </>
