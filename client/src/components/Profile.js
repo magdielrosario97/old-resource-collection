@@ -1,6 +1,7 @@
 import React from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import EditStatus from "./EditStatus";
+import { FaCog } from "react-icons/fa";
 
 class Profile extends React.Component {
    constructor(props) {
@@ -49,7 +50,7 @@ class Profile extends React.Component {
          <>
             <div className="profile">
                <h3>My Profile</h3>
-               <img src={user.picture} alt={user.name} />
+               <img id="prfpic" src={user.picture} alt={user.name} />
                <h4>{user.email === user.name ? "" : user.name}</h4>
                <h4>{user.nickname}</h4>
                <h4>{user.email}</h4>
@@ -66,13 +67,14 @@ class Profile extends React.Component {
                            {post.link}
                         </a>
                         <div>Posted by {post.username}</div>
-                        <div className="editBtns">
+                        <div>
                            <button
+                              id="edtBtn"
                               onClick={() => {
                                  this.setState({ edit: true, postID: post.id });
                               }}
                            >
-                              Edit
+                              <FaCog />
                            </button>
                         </div>
                      </div>

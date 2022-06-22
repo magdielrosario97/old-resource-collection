@@ -72,19 +72,18 @@ class EditStatus extends React.Component {
          <div className="editModulo">
             <h1>Made mistakes? No worries!</h1>
             <form onSubmit={this.returnToProfile}>
-               <label>
-                  Title: <input name="title" type="text" value={this.state.title} onChange={this.handleInputChange} />
-               </label>
-               <label>
-                  Message:{" "}
-                  <input name="message" type="text" value={this.state.message} onChange={this.handleInputChange} />
-               </label>
-               <label>
-                  Link: <input name="link" type="text" value={this.state.link} onChange={this.handleInputChange} />
-               </label>
+               <label>Title</label>
+               <input name="title" type="text" value={this.state.title} onChange={this.handleInputChange} />
+
+               <label>Message</label>
+               <input name="message" type="text" value={this.state.message} onChange={this.handleInputChange} />
+
+               <label>Link</label>
+               <input name="link" type="text" value={this.state.link} onChange={this.handleInputChange} />
             </form>
-            <div className="editButtons">
+            <div>
                <button
+                  id="sbtEdt"
                   onClick={() => {
                      this.editResource(this.state.id);
                   }}
@@ -92,13 +91,16 @@ class EditStatus extends React.Component {
                   Edit
                </button>
                <button
+                  id="delPst"
                   onClick={() => {
                      this.deletePost(this.state.id);
                   }}
                >
                   Delete
                </button>
-               <button onClick={this.returnToProfile}>Cancel</button>
+               <button id="cclEdt" onClick={this.returnToProfile}>
+                  Cancel
+               </button>
             </div>
          </div>
       );

@@ -42,7 +42,7 @@ class App extends React.Component {
 
    render() {
       if (this.state.loading) {
-         return <h1>{this.state.loadingMessage}</h1>;
+         return <h1 id="loadingMsg">{this.state.loadingMessage}</h1>;
       }
       if (this.state.hasError) {
          return <h1>{this.state.errorMessage}</h1>;

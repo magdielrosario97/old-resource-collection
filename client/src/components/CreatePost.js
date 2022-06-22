@@ -54,13 +54,12 @@ class CreatePost extends React.Component {
          <div className="createModulo">
             <h1>What is your resource?</h1>
             <div>Posting as {this.state.username}</div>
-            <form onSubmit={this.handleSubmit}>
-               <label>
-                  *Title:{" "}
+            <div className="createPostForm">
+               <form onSubmit={this.handleSubmit}>
+                  <label>Title*</label>
                   <input name="title" type="text" value={this.state.title} onChange={this.handleInputChange} required />
-               </label>
-               <label>
-                  Message:{" "}
+
+                  <label>Message</label>
                   <input
                      name="message"
                      type="text"
@@ -68,13 +67,9 @@ class CreatePost extends React.Component {
                      onChange={this.handleInputChange}
                      required
                   />
-               </label>
-               <label>
-                  *Link:{" "}
+                  <label>Link*</label>
                   <input name="link" type="text" value={this.state.link} onChange={this.handleInputChange} required />
-               </label>
-               <label>
-                  *Cohort:{" "}
+                  <label>Cohort*</label>
                   <input
                      name="cohort"
                      type="text"
@@ -83,10 +78,14 @@ class CreatePost extends React.Component {
                      onChange={this.handleInputChange}
                      required
                   />
-               </label>
-               <input type="submit" onClick={this.submitResource} />
-               <button onClick={this.handleSubmit}>Cancel</button>
-            </form>
+                  <div>
+                     <input id="crtBtn" type="submit" onClick={this.submitResource} />
+                     <button id="cnlBtn" onClick={this.handleSubmit}>
+                        Cancel
+                     </button>
+                  </div>
+               </form>
+            </div>
             <div>NOTE: Fields with '*' are required</div>
          </div>
       );
