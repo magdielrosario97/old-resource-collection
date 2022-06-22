@@ -60,13 +60,7 @@ class CreatePost extends React.Component {
                   <input name="title" type="text" value={this.state.title} onChange={this.handleInputChange} required />
 
                   <label>Message</label>
-                  <input
-                     name="message"
-                     type="text"
-                     value={this.state.message}
-                     onChange={this.handleInputChange}
-                     required
-                  />
+                  <input name="message" type="text" value={this.state.message} onChange={this.handleInputChange} />
                   <label>Link*</label>
                   <input name="link" type="text" value={this.state.link} onChange={this.handleInputChange} required />
                   <label>Cohort*</label>
