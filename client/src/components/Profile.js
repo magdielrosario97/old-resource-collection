@@ -87,13 +87,3 @@ class Profile extends React.Component {
 }
 
 export default withAuth0(Profile);
-
-{
-   /* <button
-   onClick={() => {
-      this.deletePost(post.id);
-   }}
->
-   Delete
-</button>; */
-}

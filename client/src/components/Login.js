@@ -14,7 +14,7 @@ const Login = () => {
          <button id="loginBtn" onClick={() => loginWithRedirect()}>
             Login/Register
          </button>
-         <img id="gLogo" src={galvanize} />
+         <img id="gLogo" alt="" src={galvanize} />
       </div>
    );
 };
